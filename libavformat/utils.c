@@ -866,7 +866,8 @@ int ff_read_packet(AVFormatContext *s, AVPacket *pkt)
             if (ret == FFERROR_REDO)
                 continue;
             if (!pktl || ret == AVERROR(EAGAIN))
-                return ret;
+                //return ret;
+                continue;//added by Edward.Wu to try 
             for (i = 0; i < s->nb_streams; i++) {
                 st = s->streams[i];
                 if (st->probe_packets || st->request_probe > 0)
